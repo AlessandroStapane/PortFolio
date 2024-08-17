@@ -1,0 +1,336 @@
+:root {
+    /* Colors */
+    --primary-color: #ffcd42;
+    --secondary-color: #ffd35c;
+    --bg-primary: #ffffff;
+    --text-color: #222222;
+    --text-color-two: #ffffff;
+    --bg-secondary: #000000;
+    --card-background: #f4f4f4;
+    --bg-secondary-two: #111111;
+  
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  
+    /* Font Weight */
+    --weight-small: 400;
+    --weight-semibold: 600;
+    --weight-bold: 800;
+  
+    /* Max width */
+    --width-small: 600px;
+    --width-medium: 1100px;
+    --width-large: 1300px;
+  }
+
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+.profile-image {
+    width: 150px;
+    border-radius: 50%;
+    animation: bounce 1s infinite alternate;
+  }
+  
+  @keyframes bounce {
+    from {
+      transform: translateY(0px);
+    }
+  
+    to {
+      transform: translateY(-10px);
+    }
+  }
+  .progress-bar-react {
+    background-color: rgb(0, 157, 255);
+    color: var(--text-color);
+    transition: width 2s;
+  }
+  .progress-bar-js {
+    background-color: rgb(220, 169, 1);
+    color: var(--text-color);
+    transition: width 2s;
+  }
+  .progress-bar-css {
+    background-color: rgb(5, 147, 255);
+    color: var(--text-color);
+
+  }
+  .progress-bar-html {
+    background-color: rgb(255, 126, 5);
+    color: var(--text-color);
+    transition: width 2s;
+  }
+  .progress-bar-net {
+    background-color: rgb(252, 67, 206);
+    color: var(--text-color);
+    transition: width 2s;
+  }
+  .progress-bar-db {
+    background-color: rgb(83, 218, 16);
+    color: var(--text-color);
+    transition: width 2s;
+  }
+  .progress-bar-jq {
+    background-color: rgb(16, 181, 218);
+    color: var(--text-color);
+    transition: width 2s;
+  }  
+  .progress-bar-git {
+    background-color: rgb(4, 32, 39);
+    color: white;
+    transition: width 2s;
+  }
+  .progress-bar-java {
+    background-color: rgb(244, 108, 18);
+    color: rgb(0, 0, 0);
+    transition: width 2s;
+  }
+a{
+    text-decoration: none;
+    color: var(--bg-secondary);
+}
+
+/* Timeline Container */
+.timeline {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    margin: 20px auto;
+   
+  }
+  
+  /* Outer Layer with the timeline border */
+  .outer {
+    border-left: 2px solid var(--primary-color);
+  }
+  
+  /* Card container */
+  .card {
+    position: relative;
+    margin: 0 0 20px 20px;
+    padding: 10px;
+  
+    color: rgb(0, 0, 0);
+    border-radius: 8px;
+    border-color: white;
+    max-width: 400px;
+  }
+  
+  /* Information about the timeline */
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Title of the card */
+  .title {
+    color: orangered;
+    position: relative;
+  }
+  
+  /* Timeline dot  */
+  .title::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 999px;
+    left: -36px;
+    border: 3px solid var(--primary-color);
+  }
+.centro{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+#projects {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto 5rem;
+  }
+  
+  #projects .btn {
+    align-self: center;
+    margin: 2rem 0;
+  }
+  
+  .project {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(250px, auto);
+    grid-gap: 0.9rem;
+  }
+  
+  .card .project-bio p {
+    font-size: 0.83rem;
+  }
+  
+  .card .project-bio h3 {
+    font-size: 0.9rem;
+  }
+  
+  .project-info {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+    position: relative;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .project-bio {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    top: 160px;
+    left: 10px;
+  }
+  .date{
+    color: var(--bg-secondary);
+  }
+
+  #str::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+}
+
+
+.content-text p :hover{
+  background-color: var(--primary-color);
+}
+
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+.section_headingf{
+  background-color: #222222;
+}
+.section_headingf p {
+  color: #fffdfd;
+}
+.esperienza .title  :hover{
+  background-color: var(--primary-color);
+}
+.title1 .test :hover{
+  background-color: var(--primary-color);
+}
+.btnCV {
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.btnCV i {
+  transition: transform 0.3s ease;
+}
+
+.btnCV:hover i {
+  transform: translateX(5px);
+}
+
+
+       /* Stili di base per il popup */
+       .popup {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        max-width: 400px;
+        width: 100%;
+    }
+
+    /* Sfondo scuro dietro il popup */
+    .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    /* Stile per il pulsante di chiusura */
+    .popup .close-btn {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        float: right;
+    }
+    .nav-underline .nav-link {
+      position: relative;
+  }
+
+  .nav-underline .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px; /* Distanza dal testo */
+      width: 100%;
+      height: 2px; /* Spessore della linea */
+      background-color: #ffcc00; /* Colore della linea */
+      transform: scaleX(0); /* Nascondi inizialmente la linea */
+      transform-origin: right;
+      transition: transform 0.3s ease;
+  }
+
+  .nav-underline .nav-link:hover::after,
+  .nav-underline .nav-link:focus::after {
+      transform: scaleX(1); /* Mostra la linea al passaggio del mouse o al focus */
+      transform-origin: left;
+  }
+.card-body  :hover{
+  background-color: var(--primary-color);
+}
+.icon:hover{
+  color: var(--primary-color) !important;
+}
+.icon{
+  font-size: 2rem;
+  color: white;
+}
+.arrow-animation {
+  display: inline-flex;
+  align-items: center;
+}
+
+.arrow-animation i {
+  margin-left: 5px;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.btn:hover .arrow-animation i:nth-child(1) {
+  transform: translateX(10px); /* Sposta la prima freccia in avanti */
+}
+
+.btn:hover .arrow-animation i:nth-child(2) {
+  transform: translateX(15px); /* Sposta la seconda freccia un po' più in avanti */
+}
