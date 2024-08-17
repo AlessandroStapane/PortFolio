@@ -334,3 +334,44 @@ a{
 .btn:hover .arrow-animation i:nth-child(2) {
   transform: translateX(15px); /* Sposta la seconda freccia un po' più in avanti */
 }
+
+.container-404 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.giphy-container {
+  width: 100%;
+  max-width: 600px; /* Limita la larghezza massima del contenitore */
+  margin-bottom: 20px;
+}
+.giphy-container iframe {
+  width: 100%;
+  height: 300px; /* Imposta un'altezza fissa per ingrandire la GIF */
+  object-fit: cover; /* Mantiene la proporzione e riempie l'area */
+}
+.container-404 h1 {
+  font-size: 8rem;
+  font-weight: bold;
+  color: #ffc107;
+  margin: 0;
+}
+.container-404 h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #343a40;
+}
+.container-404 p {
+  font-size: 1.25rem;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+.container-404 a {
+  font-size: 1.25rem;
+  text-decoration: none;
+}
