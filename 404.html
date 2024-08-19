@@ -58,7 +58,7 @@
             <h2>Oops! Pagina Non Trovata</h2>
         <p>La pagina che stai cercando potrebbe essere stata rimossa, aver cambiato nome o essere temporaneamente non
             disponibile.</p>
-        <a href="{{ site.baseurl }}/" class="btn btn-warning mt-3">Torna alla Home</a>
+        <a href="{{site.baseurl}}/" class="btn btn-warning mt-3">Torna alla Home</a>
         </div>
     </div>
 
@@ -70,5 +70,10 @@
             height: 100%;
         }
     </style>
+    <script>
+      
+  const baseUrl = window.location.pathname.split('/').slice(0, 2).join('/');
+  document.getElementById('home-link').href = `${baseUrl}/`;
 
+    </script>
 </html>
