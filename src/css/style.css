@@ -342,24 +342,21 @@ a{
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
 }
 .giphy-container {
-  width: 100%;
-  max-width: 600px; /* Limita la larghezza massima del contenitore */
+  width: 300px;
+  max-width: 300px; /* Limita la larghezza massima della GIF */
   margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 100%; /* Mantiene un rapporto 1:1 (quadrato) */
+  height: 0;
+  background-color: #6c757d;
 }
-.giphy-container iframe {
-  width: 100%;
-  height: 300px; /* Imposta un'altezza fissa per ingrandire la GIF */
-  object-fit: cover; /* Mantiene la proporzione e riempie l'area */
-}
+
 .container-404 h1 {
   font-size: 8rem;
   font-weight: bold;
   color: #ffc107;
-  margin: 0;
 }
 .container-404 h2 {
   font-size: 2rem;
@@ -369,9 +366,4 @@ a{
 .container-404 p {
   font-size: 1.25rem;
   color: #6c757d;
-  margin-bottom: 20px;
-}
-.container-404 a {
-  font-size: 1.25rem;
-  text-decoration: none;
 }
