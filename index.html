@@ -11,7 +11,8 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://kit.fontawesome.com/f0b3381543.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link rel="stylesheet" href="./src/css/style.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
@@ -23,39 +24,52 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img src="src/assets/logo.png" width="50rm" eghit="50rm"></a>
+            <a class="navbar-brand" href="/"><img src="src/assets/logo.png" width="50px" height="50px" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav nav-underline ">
+                <ul class="navbar-nav nav-underline mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#Home">Home</a>
+                        <a class="nav-link" aria-current="page" href="#Home"><i class="fa-solid fa-house"
+                                style="color: #000;"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Contact">Contatti</a>
+                        <a class="nav-link" href="#Contact"><i class="fa-solid fa-id-card" style="color: #000;"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Skill">Skill</a>
+                        <a class="nav-link" href="#Skill"><i class="fa-solid fa-key" style="color: #000;"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Esperienza">Esperienza</a>
+                        <a class="nav-link" href="#Esperienza"><i class="fa-solid fa-business-time"
+                                style="color: #000;"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Progetti</a>
+                        <a class="nav-link" href="#projects"><i class="fa-solid fa-paper-plane"
+                                style="color: #000;"></i></a>
                     </li>
                 </ul>
+                <div class="d-flex align-items-center">
+                    <button type="button" class="btn btn-warning btnCV me-3"
+                        onclick="openPopup('Stai per scaricare un file!')">Scarica il CV <i
+                            class="bi bi-arrow-right"></i></button>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="themeSwitch">
+                        <label class="form-check-label" for="themeSwitch">
+                            <i class="fas fa-sun" id="sunIcon"></i>
+                            <i class="fas fa-moon" id="moonIcon"></i>
+                        </label>
+                    </div>
+                </div>
             </div>
-            <button type="button" class="btn btn-warning btnCV"
-                onclick="openPopup('Stai per scaricare un file!')">Scarica il CV <i
-                    class="bi bi-arrow-right"></i></button>
         </div>
-
     </nav>
+
 
     <br>
     <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
     <section id="Home">
         <div class="home">
             <header id="hero">
@@ -70,6 +84,7 @@
                 <p>
                     Nothing Is Impossible!
                 </p>
+
 
         </div>
         </header>
@@ -303,14 +318,13 @@
                                     <p>Addetto alle giostre</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
+                </section>
             </div>
-            </div>
+        </article>
     </section>
-    </section>
-    </article>
+    
     <br>
     <br> <br> <br>
     <br> <br> <br> <br>
@@ -338,13 +352,15 @@
                             <h5 class="card-title">Wheter app</h5>
                             <p class="card-text">App, sviluppa in react, che tramite API pubbliche, restituisce il meteo
                                 di un luogo</p>
-                            <a href="404.html"
-                                class="btn btn-warning w-45">
+                            <button class="btn btn-warning w-45"
+                                onclick="openPopup404('Ops! Pagina Non Trovata \nLa pagina che stai cercando potrebbe essere stata rimossa, aver cambiato nome o essere temporaneamente non disponibile.')">
+
+
                                 <i class="bi bi-github" style="color: white; font-size: 1rem;"></i>
                                 <span class="arrow-animation">
                                     <i class="bi bi-arrow-right" style="color: white; font-size: 1rem;"></i>
                                 </span>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -398,6 +414,19 @@
             <button type="button" class="btn btn-danger" onclick="closePopup()">Annulla</button>
         </div>
     </div>
+
+    <div id="myPopup404" class="popup">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="modal-title">Pagina Non Trovata </h5>
+            <button class="close-btn" onclick="closePopup404()">X</button>
+        </div>
+        <p id="popupMessage404"></p>
+
+    </div>
+    </div>
+
+    <!--<button class="btn" onclick="toggleDarkMode()">Attiva/Disattiva Tema Scuro</button>-->
+
 
     <footer id="footer">
         <div class="row justify-content-center section_headingf">
@@ -520,15 +549,140 @@
 
     }
 
+
+    function openPopup404() {
+        // Imposta il messaggio personalizzato
+        document.getElementById('popupMessage404').innerHTML = 'Ops! Pagina Non Trovata<br>La pagina che stai cercando potrebbe essere stata rimossa, aver cambiato nome o essere temporaneamente non disponibile.';
+        // Mostra il popup e l'overlay scuro
+        document.getElementById('myPopup404').style.display = 'block';
+        document.getElementById('myPopup404').style.display = 'block';
+
+    }
+
+
     // Funzione per chiudere il popup
     function closePopup() {
         document.getElementById('myPopup').style.display = 'none';
+        document.getElementById('popupOverlay').style.display = 'none';
+    }
+    function closePopup404() {
+        document.getElementById('myPopup404').style.display = 'none';
         document.getElementById('popupOverlay').style.display = 'none';
     }
     document.getElementById('myPopup').addEventListener('click', function (event) {
         console.log('Elemento cliccato:', event.target);
         // Puoi aggiungere ulteriori azioni qui in base all'elemento cliccato
     });
+    const themeSwitch = document.getElementById('themeSwitch');
+
+    // Funzione per attivare o disattivare la modalità scura
+    function toggleDarkMode() {
+        if (themeSwitch.checked) {
+            document.body.classList.add('dark-mode'); // Abilita modalità scura
+        } else {
+            document.body.classList.remove('dark-mode'); // Disabilita modalità scura
+        }
+    }
+
+    // Aggiunge un listener per gestire il cambiamento dell'interruttore
+    themeSwitch.addEventListener('change', toggleDarkMode);
+
+    // Imposta il tema in base allo stato dell'interruttore quando la pagina viene caricata
+    document.addEventListener('DOMContentLoaded', function () {
+        if (themeSwitch.checked) {
+            document.body.classList.add('dark-mode'); // Abilita modalità scura se l'interruttore è selezionato
+        } else {
+            document.body.classList.remove('dark-mode'); // Disabilita modalità scura se l'interruttore non è selezionato
+        }
+    });
+
+
 </script>
+<style>
+    /* Applica uno sfondo nero e testo bianco a tutto il body */
+    /* Tema scuro globale applicato con la classe 'dark-mode' */
+    .dark-mode body,
+    .dark-mode {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    /* Navbar in modalità scura */
+    .dark-mode .navbar,
+    .dark-mode .navbar-nav .nav-link,
+    .dark-mode .navbar-brand,
+    .dark-mode .navbar-toggler i {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    /* Colore del bottone della navbar (icona del menu in versione mobile) */
+    .dark-mode .navbar-toggler {
+        border-color: #fff !important;
+    }
+
+    .dark-mode .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28 255, 255, 255, 1 %29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    }
+
+    /* Colore dei link della navbar */
+    .dark-mode .navbar-nav .nav-link {
+        color: #fff !important;
+    }
+
+
+    /* Sezione skill ed esperienza */
+    .dark-mode .section_heading,
+    .dark-mode .section_heading h2,
+    .dark-mode h6 {
+        color: #fff !important;
+    }
+
+    /* Colore del footer */
+    .dark-mode footer {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    /* Stile delle schede (card) */
+    .dark-mode .card {
+        background-color: #111 !important;
+        color: #fff !important;
+        border: 1px solid #333 !important;
+    }
+
+    /* Pop-up scuro */
+    .dark-mode .popup {
+        background-color: #000 !important;
+        color: #fff !important;
+        border: 1px solid #444 !important;
+    }
+
+    /* Altri elementi */
+    .dark-mode .progress-bar {
+        background-color: #000 !important;
+    }
+
+    /* Modifica il colore dei link */
+    .dark-mode a {
+        color: #fff !important;
+        text-decoration: none !important;
+    }
+
+    .dark-mode a:hover {
+        text-decoration: none !important;
+    }
+
+    /* Modifica i titoli delle sezioni 'esperienza' e 'content-text' */
+    .dark-mode .esperienza .title:hover,
+    .dark-mode .title1 .test:hover,
+    .dark-mode .content-text p:hover {
+        background-color: none !important;
+    }
+
+    .dark-mode .fa-solid {
+        color: #ffcd42 !important;
+    }
+</style>
 
 </html>

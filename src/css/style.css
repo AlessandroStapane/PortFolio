@@ -20,6 +20,8 @@
     --width-small: 600px;
     --width-medium: 1100px;
     --width-large: 1300px;
+    --icon-color-light: #0000;
+    --icon-color-dark: #ffcd42;
   }
 
 
@@ -206,9 +208,9 @@ a{
 }
 
 
-.content-text p :hover{
-  background-color: var(--primary-color);
-}
+  .content-text p :hover{
+    background-color: var(--primary-color);
+  }
 
 
 @keyframes blink {
@@ -366,4 +368,127 @@ a{
 .container-404 p {
   font-size: 1.25rem;
   color: #6c757d;
+}
+
+/* Stili generali per il toggle switch */
+.form-check.form-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Nascondi l'input del toggle switch */
+.form-check-input {
+  display: none;
+}
+
+/* Stili per l'etichetta del toggle switch */
+.form-check-label {
+  position: relative;
+  display: inline-block;
+  width: 60px; /* Larghezza del toggle switch */
+  height: 34px; /* Altezza del toggle switch */
+}
+
+/* Stili generali per il toggle switch */
+.form-check.form-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+/* Nascondi l'input del toggle switch */
+.form-check-input {
+  display: none;
+}
+
+/* Stili per l'etichetta del toggle switch */
+.form-check-label {
+  position: relative;
+  display: inline-block;
+  width: 60px; /* Larghezza del toggle switch */
+  height: 34px; /* Altezza del toggle switch */
+}
+
+/* Stili per il toggle switch slider */
+.form-check-label::before {
+  content: "";
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc; /* Colore dello sfondo del toggle switch */
+  border-radius: 34px; /* Angoli arrotondati */
+  transition: .4s; /* Transizione fluida per lo switch */
+}
+
+/* Stili per le icone dentro il toggle switch */
+#sunIcon, #moonIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #ffffff;
+  transition: opacity 1s;
+}
+
+/* Posizione delle icone */
+#sunIcon {
+  left: 10px;
+  
+}
+
+#moonIcon {
+  right: 10px;
+  opacity: 0; /* Inizialmente nascosto */
+
+}
+
+/* Modifica lo sfondo e la posizione del cerchietto quando il toggle è attivo */
+.form-check-input:checked + .form-check-label::before {
+  background-color:var(--primary-color); /* Colore dello sfondo quando il toggle è attivo */
+}
+
+/* Sposta il cerchietto a destra quando il toggle è attivo */
+.form-check-input:checked + .form-check-label::after {
+  transform: translateX(50px); /* Sposta il cerchietto a destra */
+}
+
+/* Mostra l'icona della luna e nascondi quella del sole quando il tema scuro è attivo */
+.dark-mode #sunIcon {
+  opacity: 0;
+}
+
+.dark-mode #moonIcon {
+  opacity: 1;
+}
+/* Per centrare gli elementi all'interno della navbar */
+
+
+/* Allinea la navbar al centro della pagina */
+.navbar {
+  justify-content: center;
+}
+
+/* Separa il contenuto della navbar dal bordo */
+.container {
+  max-width: 1140px; /* O un valore appropriato per la larghezza massima */
+}
+
+/* Allinea gli elementi all'interno della navbar */
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+/* Assicura che il contenuto a destra sia allineato correttamente */
+.d-flex.ms-auto {
+  margin-left: auto;
+}
+.navbar-toggler-icon {
+  filter: invert(0);
 }
