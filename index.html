@@ -22,36 +22,46 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-sm-bottom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img src="src/assets/logo.png" width="50px" height="50px" alt="Logo"></a>
+            <a class="navbar-brand" href="#Home">
+                <img src="src/assets/logo.png" width="50px" height="50px" alt="Logo">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav nav-underline mx-auto">
+                <ul class="navbar-nav nav-underline mx-auto d-flex flex-row">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#Home"><i class="fa-solid fa-house"
-                                style="color: #000;"></i></a>
+                        <a class="nav-link" aria-current="page" href="#Home">
+                            <i class="fa-solid fa-house" style="color: #000;"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Contact"><i class="fa-solid fa-id-card" style="color: #000;"></i></a>
+                        <a class="nav-link" href="#Contact">
+                            <i class="fa-solid fa-id-card" style="color: #000;"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Skill"><i class="fa-solid fa-key" style="color: #000;"></i></a>
+                        <a class="nav-link" href="#Skill">
+                            <i class="fa-solid fa-key" style="color: #000;"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Esperienza"><i class="fa-solid fa-business-time"
-                                style="color: #000;"></i></a>
+                        <a class="nav-link" href="#Esperienza">
+                            <i class="fa-solid fa-business-time" style="color: #000;"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects"><i class="fa-solid fa-paper-plane"
-                                style="color: #000;"></i></a>
+                        <a class="nav-link" href="#projects">
+                            <i class="fa-solid fa-paper-plane" style="color: #000;"></i>
+                        </a>
                     </li>
                 </ul>
-                <div class="d-flex align-items-center">
-                    <button type="button" class="btn btn-warning btnCV me-3"
+                <!-- Opzioni extra per i desktop -->
+                <div class="d-none d-lg-flex align-items-center ms-auto">
+                    <button type="button" class="btn btn-warning btnCV me-3 btn-custom-sm"
                         onclick="openPopup('Stai per scaricare un file!')">Scarica il CV <i
                             class="bi bi-arrow-right"></i></button>
                     <div class="form-check form-switch">
@@ -65,7 +75,6 @@
             </div>
         </div>
     </nav>
-
 
     <br>
     <br> <br> <br> <br> <br> <br> <br> <br> <br>
@@ -428,7 +437,7 @@
     <!--<button class="btn" onclick="toggleDarkMode()">Attiva/Disattiva Tema Scuro</button>-->
 
 
-    <footer id="footer">
+    <footer id="footer">         
         <div class="row justify-content-center section_headingf">
             <div class="col-12 col-sm-8 col-lg-6">
                 <div class=" text-center">
@@ -595,6 +604,26 @@
             document.body.classList.remove('dark-mode'); // Disabilita modalità scura se l'interruttore non è selezionato
         }
     });
+    async function checkSiteStatus(url, internalRedirectPath) {
+    try {
+        // Usa Fetch API per controllare la disponibilità del sito
+        const response = await fetch(url, { method: 'GET', mode: 'no-cors' });
+
+        // Anche se mode è impostato su 'no-cors', non è possibile ottenere dettagli sulla risposta
+        if (response.ok) {
+            console.log('Il sito è raggiungibile.');
+        } else {
+            console.log(`Codice di stato: ${response.status}`);
+        }
+    } catch (error) {
+        console.error('Errore di connessione:', error);
+        // Reindirizza a una pagina interna del tuo sito
+        window.location.href = internalRedirectPath;
+    }
+}
+
+// Esempio di utilizzo
+checkSiteStatus('http://127.0.0.1:5500', '/src/page/mini-game.html');
 
 
 </script>
@@ -683,6 +712,12 @@
     .dark-mode .fa-solid {
         color: #ffcd42 !important;
     }
+    @media (max-width: 991px) { /* max-width: 991px corrisponde a schermi < lg */
+            .btn-custom-sm {
+                padding: 0.25rem 0.5rem; /* Riduce il padding dei bottoni */
+                font-size: 0.75rem; /* Riduce la dimensione del testo */
+            }
+        }
 </style>
 
 </html>

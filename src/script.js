@@ -57,3 +57,24 @@ function processMessages(index) {
 $(document).ready(function() {
     processMessages(0);
 });
+
+async function checkSiteStatus(url, internalRedirectPath) {
+    try {
+        // Usa Fetch API per controllare la disponibilità del sito
+        const response = await fetch(url, { method: 'GET', mode: 'no-cors' });
+
+        // Anche se mode è impostato su 'no-cors', non è possibile ottenere dettagli sulla risposta
+        if (response.ok) {
+            console.log('Il sito è raggiungibile.');
+        } else {
+            console.log(`Codice di stato: ${response.status}`);
+        }
+    } catch (error) {
+        console.error('Errore di connessione:', error);
+        // Reindirizza a una pagina interna del tuo sito
+        window.location.href = internalRedirectPath;
+    }
+}
+
+// Esempio di utilizzo
+checkSiteStatus('http://127.0.0.1:5500', '/src/page/mini-game.html');
