@@ -48,6 +48,7 @@
                         <a class="nav-link" href="#projects">Progetti</a>
                     </li>
                 </ul>
+                <button type="button" class="btn btn-outline-warning" onclick="downloadPDF()">Scarica il CV</button>
             </div>
         </div>
     </nav>
@@ -563,6 +564,43 @@
         console.log('Elemento cliccato:', event.target);
         // Puoi aggiungere ulteriori azioni qui in base all'elemento cliccato
     });
+
+
+// Funzione per scaricare un file PDF da una cartella
+function downloadPDF(filePath, fileName) {
+    // Utilizziamo la funzione fetch per ottenere il file dalla directory specificata
+    fetch(filePath)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Errore nel download del file: ' + response.statusText);
+        }
+        return response.blob(); // Convertiamo la risposta in un Blob
+      })
+      .then(blob => {
+        // Creiamo un URL oggetto per il Blob
+        const url = window.URL.createObjectURL(blob);
+        // Creiamo un elemento <a> temporaneo
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = fileName; // Nome con cui il file verrà salvato
+        document.body.appendChild(a);
+        a.click(); // Simuliamo il click sul link
+        
+        // Puliamo il DOM e revochiamo l'URL oggetto
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      })
+      .catch(error => {
+        console.error('Si è verificato un errore:', error);
+      });
+}
+
+// Esempio di utilizzo della funzione
+downloadPDF('./src/Resume/Alessandro_Stapane.pdf', 'Alessandro_Stapane_CV.pdf');
+
+
+
 </script>
 
 </html>

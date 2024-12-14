@@ -75,6 +75,5 @@ async function checkSiteStatus(url, internalRedirectPath) {
         window.location.href = internalRedirectPath;
     }
 }
-
 // Esempio di utilizzo
 checkSiteStatus('http://127.0.0.1:5500', '/src/page/mini-game.html');
