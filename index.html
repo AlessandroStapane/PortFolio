@@ -20,9 +20,12 @@
 </head>
 
 <body>
-<div>
-    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="alessandrostapane" data-description="Support me on Buy me a coffee!" data-message="Grazie per il supporto!" data-color="#ffcd42" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
-</div>
+    <div>
+        <script data-name="BMC-Widget" data-cfasync="false"
+            src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="alessandrostapane"
+            data-description="Support me on Buy me a coffee!" data-message="Grazie per il supporto!"
+            data-color="#ffcd42" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+    </div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><img src="src/assets/logo.png" width="50rm" eghit="50rm"></a>
@@ -48,7 +51,6 @@
                         <a class="nav-link" href="#projects">Progetti</a>
                     </li>
                 </ul>
-                <button type="button" class="btn btn-warning" onclick="openPopup('Attenzione, stai per scaricare il mio CV')">Scarica il CV</button>
             </div>
         </div>
     </nav>
@@ -311,7 +313,7 @@
             </div>
         </article>
     </section>
-    
+
     <br>
     <br> <br> <br>
     <br> <br> <br> <br>
@@ -388,6 +390,32 @@
         </div>
     </section>
 
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Inviami una mail
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                        placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+
+                <button id="sendEmailButton">Send Email</button>
+            </div>
+        </div>
+    </div>
+
     <div id="popupOverlay" class="popup-overlay"></div>
 
     <div id="myPopup" class="popup">
@@ -410,34 +438,26 @@
         <p id="popupMessage404"></p>
 
     </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-      
-      <button id="sendEmailButton">Send Email</button>
+
     </div>
 
 
     <!--<button class="btn" onclick="toggleDarkMode()">Attiva/Disattiva Tema Scuro</button>-->
 
 
-    <footer id="footer">         
+    <footer id="footer">
         <div class="row justify-content-center section_headingf">
             <div class="col-12 col-sm-8 col-lg-6">
                 <div class=" text-center">
                     <p>Alessandro &copy; 2024</p>
                     <a href="https://www.linkedin.com/in/alessandrostapane" _blank><i
                             class="bi bi-linkedin icon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="https://github.com/AlessandroStapane" _blank><i class="bi bi-github icon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://github.com/AlessandroStapane" _blank><i
+                            class="bi bi-github icon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="https://t.me/AleStappa" target="_blank">
                         <i class="bi bi-telegram icon"></i>
-                      </a>
-                      
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -577,11 +597,11 @@
     });
 
 
-    document.getElementById('sendEmailButton').addEventListener('click', function() {
+    document.getElementById('sendEmailButton').addEventListener('click', function () {
         // Raccogli i dati inseriti dall'utente
         const recipientEmail = document.getElementById('exampleFormControlInput1').value;
         const message = document.getElementById('exampleFormControlTextarea1').value;
-        
+
         // Validazione dei dati
         if (!recipientEmail) {
             alert('Please enter a valid email address.');
@@ -592,14 +612,14 @@
             alert('Please enter a message.');
             return;
         }
-        
+
         // Specifica l'oggetto e il corpo della mail
         const subject = encodeURIComponent('Message from Your Website');
         const body = encodeURIComponent(message);
-        
+
         // Costruzione del link mailto (funziona con Gmail, Outlook, Yahoo, ecc.)
         const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-        
+
         // Apri il client di posta elettronica predefinito dell'utente
         window.location.href = mailtoLink;
     });
