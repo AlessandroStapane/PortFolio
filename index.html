@@ -410,7 +410,18 @@
         <p id="popupMessage404"></p>
 
     </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      
+      <button id="sendEmailButton">Send Email</button>
     </div>
+
 
     <!--<button class="btn" onclick="toggleDarkMode()">Attiva/Disattiva Tema Scuro</button>-->
 
@@ -566,8 +577,32 @@
     });
 
 
-// Funzione per scaricare un file PDF da una cartella
+    document.getElementById('sendEmailButton').addEventListener('click', function() {
+        // Raccogli i dati inseriti dall'utente
+        const recipientEmail = document.getElementById('exampleFormControlInput1').value;
+        const message = document.getElementById('exampleFormControlTextarea1').value;
+        
+        // Validazione dei dati
+        if (!recipientEmail) {
+            alert('Please enter a valid email address.');
+            return;
+        }
 
+        if (!message) {
+            alert('Please enter a message.');
+            return;
+        }
+        
+        // Specifica l'oggetto e il corpo della mail
+        const subject = encodeURIComponent('Message from Your Website');
+        const body = encodeURIComponent(message);
+        
+        // Costruzione del link mailto (funziona con Gmail, Outlook, Yahoo, ecc.)
+        const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+        
+        // Apri il client di posta elettronica predefinito dell'utente
+        window.location.href = mailtoLink;
+    });
 </script>
 
 </html>
